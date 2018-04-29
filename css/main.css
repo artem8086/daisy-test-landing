@@ -1,0 +1,79 @@
+* {
+    box-sizing: border-box;
+    transition: width 0.4s ease-in;
+    transition: height 0.4s ease-in;
+}
+
+body {
+    margin: 0;
+    background-color: #ffffff;
+}
+
+.page {
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    position: relative;
+    overflow: hidden;
+    width: 100%;
+}
+
+.content {
+    position: relative;
+    width: 940px;
+    height: 100%;
+    margin: 0 auto;
+    z-index: 1;
+}
+
+.but {
+    display: inline-block;
+    padding: 18px 32px;
+    border-radius: 8px;
+    user-select: none;
+    cursor: pointer;
+    font-size: 24px;
+    font-weight: 300;
+    font-family: "PFEncoreSansPro-Light";
+    letter-spacing: -0.12px;
+    color: #fc635e;
+    border: 2px solid !important;
+    transition: all .2s ease-in-out;
+}
+
+.but:hover {
+    box-shadow: 0 0 14px rgba(0,0,0,0.5);
+    color: #f75;
+}
+
+.slider {
+    background-image: url(../images/slider.png);
+    position: absolute;
+    width: 28px;
+    height: 28px;
+    margin: 0 50%;
+    display: block;
+    background-repeat: no-repeat;
+    background-size: cover;
+    transform: translate(-50%, 0);
+    transition: all .2s ease-in-out;
+    border-radius: 50%;
+    cursor: pointer;
+}
+
+.slider.red {
+    background-image: url(../images/slider-red.png);
+}
+
+.slider:hover {
+    box-shadow: 0 0 15px rgba(0,0,0,0.8);
+}
+
+.slider.red:hover {
+    box-shadow: 0 0 15px rgba(255,255,255,0.8);
+}
+
+
+.right {
+    float: right;
+}

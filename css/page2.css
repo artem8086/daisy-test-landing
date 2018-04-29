@@ -1,0 +1,52 @@
+.page-2 {
+	height: 576px;
+}
+
+.page-2 .content {
+	padding-top: 91px;
+}
+
+.page-2::before {
+    background-color: #131313;
+    position: absolute;
+    left: 0;
+    top: 0;
+    display: block;
+    content: "";
+    opacity: .7;
+    width: 100%;
+    height: 100%;
+}
+
+.page-2 .wrapper {
+	position: relative;
+	border: 8px solid rgba(255, 255, 255, .1);
+	height: 384px;
+	text-align: center;
+}
+
+.page-2 .wrapper>div {
+	position: relative;
+	margin: 0 auto;
+	top: 50%;
+	transform: translateY(-50%);
+}
+
+.page-2 .wrapper h1 {
+	text-transform: uppercase;
+	font-family: "PFEncoreSansPro-Bold";
+	letter-spacing: -0.26px;
+	font-size: 51px;
+	font-weight: 700;
+	line-height: 17.95px;
+	color: #ffffff;
+	padding-bottom: 51px;
+}
+
+.page-2 .wrapper h1>.red {
+	color: #fc635e;
+}
+
+.page-2 .slider {
+    bottom: 20px;
+}
