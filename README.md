@@ -7,3 +7,5 @@
 Половина кода на **CSS**, половина на **Stylus**.
 
 ## [Предпросмотр](http://htmlpreview.github.io/?https://github.com/artem8086/daisy-test-landing/blob/master/index.html)
+
+## [Предпросмотр с быстрой загрузкой](http://htmlpreview.github.io/?https://github.com/artem8086/daisy-test-landing/blob/master/fast-index.html)
