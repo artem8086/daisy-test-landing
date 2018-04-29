@@ -1,0 +1,465 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Daisy</title>
+    <style>
+        * {
+    box-sizing: border-box;
+    transition: width 0.4s ease-in;
+    transition: height 0.4s ease-in;
+}
+
+body {
+    margin: 0;
+    background-color: #ffffff;
+}
+
+.page {
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    position: relative;
+    overflow: hidden;
+    width: 100%;
+}
+
+.content {
+    position: relative;
+    width: 940px;
+    height: 100%;
+    margin: 0 auto;
+    z-index: 1;
+}
+
+.but {
+    display: inline-block;
+    padding: 18px 32px;
+    border-radius: 8px;
+    user-select: none;
+    cursor: pointer;
+    font-size: 24px;
+    font-weight: 300;
+    font-family: "PFEncoreSansPro-Light";
+    letter-spacing: -0.12px;
+    color: #fc635e;
+    border: 2px solid !important;
+    transition: all .2s ease-in-out;
+}
+
+.but:hover {
+    box-shadow: 0 0 14px rgba(0,0,0,0.5);
+    color: #f75;
+}
+
+.slider {
+    background-image: url(images/slider.png);
+    position: absolute;
+    width: 28px;
+    height: 28px;
+    margin: 0 50%;
+    display: block;
+    background-repeat: no-repeat;
+    background-size: cover;
+    transform: translate(-50%, 0);
+    transition: all .2s ease-in-out;
+    border-radius: 50%;
+    cursor: pointer;
+}
+
+.slider.red {
+    background-image: url(images/slider-red.png);
+}
+
+.slider:hover {
+    box-shadow: 0 0 15px rgba(0,0,0,0.8);
+}
+
+.slider.red:hover {
+    box-shadow: 0 0 15px rgba(255,255,255,0.8);
+}
+
+
+.right {
+    float: right;
+}
+
+
+header {
+    height: 774px;
+}
+
+header .content {
+    padding-top: 22px;
+}
+
+header::before {
+    background-color: #181818;
+    position: absolute;
+    left: 0;
+    top: 0;
+    display: block;
+    content: "";
+    opacity: .7;
+    width: 100%;
+    height: 100%;
+}
+
+header .top-line {
+    width: 100%;
+}
+
+header .logo {
+    display: inline-block;
+    padding-top: 14px;
+    padding-bottom: 14px;
+}
+
+header .logo>.octa {
+    display: inline-block;
+    vertical-align: middle;
+    position: relative;
+    text-align: center;
+    background-color: rgba(252, 99, 94, 0.97);
+    width: 59px;
+    height: 40px;
+}
+
+header .logo>.octa::before, header .logo>.octa::after {
+    display: inline-block;
+    content: "";
+    position: absolute;
+    left: 0;
+    height: 0;
+    width: 0;
+    border-left: 29px solid transparent;
+    border-right: 29px solid transparent;
+}
+
+header .logo>.octa::after {
+    bottom: -14px;
+    border-top: 14px solid rgba(252, 99, 94, 0.97);
+}
+
+header .logo>.octa::before {
+    top: -14px;
+    border-bottom: 14px solid rgba(252, 99, 94, 0.97);
+}
+
+header .logo>.octa>.D-letter {
+    font-family: "PF Encore Sans Pro Bold";
+    display: inline-block;
+    user-select: none;
+    font-weight: 700;
+    font-size: 36px;
+    color: #0c252d;
+}
+
+header .logo>.text {
+    display: inline-block;
+    vertical-align: middle;
+    font-weight: 700;
+    font-size: 24px;
+    color: #ffffff;
+    margin: 10px;
+    font-family: "GothamPro-Bold";
+    line-height: 15.65px;
+}
+
+header .top-mnu {
+    display: inline-block;
+    /*padding-top: 22px;*/
+}
+
+header .top-mnu>ul {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+}
+
+header .top-mnu>ul>li {
+    display: inline;
+    line-height: 68px;
+    padding: 0 20px;
+}
+
+header .top-mnu>ul>li:first-child {
+    padding-left: 0;
+}
+
+header .top-mnu>ul>li:last-child {
+    padding-right: 0;
+}
+
+header .nav__link {
+    position: relative;
+    color: #ffffff;
+    font-family: "PF Encore Sans Pro - Thin";
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 36px;
+    display: inline-block;
+    /* margin-right: 20px; */
+    text-decoration: none;
+    text-transform: uppercase;
+    transition: color 0.2s ease-in-out;
+    border-color: #fc635e;
+    border-width: 0;
+}
+
+header .nav__link::before {
+    display: inline-block;
+    position: absolute;
+    left: 50%;
+    bottom: 0;
+    width: 0%;
+    content: "";
+    visibility: hidden;
+    border-bottom: 4px solid #fc635e;
+    transition: all 0.2s ease-in-out;
+}
+
+header .nav__link:hover::before {
+    left: 0;
+    width: 100%;
+    visibility: visible;
+}
+
+header .nav__link:hover {
+    color: #fc635e;
+    /* border-bottom: 3px solid; */
+}
+
+header .center {
+    position: absolute;
+    display: block;
+    top:  50%;
+    transform: translate(0, -50%);
+    /* margin-top: 192px; */
+    text-align: center;
+    width: 100%;
+}
+
+header .center>.main-text {
+    position: relative;
+    margin: 0;
+    padding:  0;
+    font-size: 51px;
+    font-weight: 700;
+    font-family: "PFEncoreSansPro-Bold";
+    color: #fff;
+    text-transform: uppercase;
+}
+
+header .center>.main-text::before, header .center>.main-text::after {
+    content: "";
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    display: inline-block;
+    background-color: #ffffff;
+    opacity: .2;
+    width: 107px;
+    height: 8px;
+}
+
+header .center>.main-text::before {
+    left: -118px;
+}
+
+header .center>.main-text::after {
+    right: -118px;
+}
+
+header .center>.main-text>.red {
+    color: #fc635e;
+}
+
+header .center>.describe {
+    margin: 27px 0 0 0;
+    font-size: 24px;
+    font-weight: 300;
+    font-family: "PFEncoreSansPro-Light";
+    letter-spacing: -0.12px;
+    color: #fff;
+}
+
+header .wrapper-but {
+    position: relative;
+    margin-top: 48px;
+}
+
+header .center .mouse-img {
+    background-image: url(images/mouse1.svg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    display: inline-block;
+    position: absolute;
+    margin: 0 0 0 9px;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 47px;
+    height: 32px;
+}
+
+header .center .mouse-img::after {
+    color: #fff;
+    opacity: .2;
+    border-top: 1px dashed;
+    border-right: 1px dashed;
+    border-top-right-radius: 34px;
+    content: "";
+    position: absolute;
+    display: inline-block;
+    width: 74px;
+    height: 372px;
+    left: 46px;
+    top: 16px;
+}
+
+header .slider {
+    bottom: 28px;
+}
+    </style>
+</head>
+<body>
+    
+    <header class="page" style="background-image: url(images/bg-page1.png);">
+        <div class="content">
+            <div class="top-line">
+                <div class="logo">
+                    <div class="octa"><span class="D-letter">D</span></div>
+                    <span class="text">Daisy</span>
+                </div>
+                <nav class="top-mnu right">
+                    <ul>
+                        <li><a href="#" class="nav__link">about</a></li>
+                        <li><a href="#" class="nav__link">portfolio</a></li>
+                        <li><a href="#" class="nav__link">services</a></li>
+                        <li><a href="#" class="nav__link">contact</a></li>
+                    </ul>
+                </nav>
+            </div>
+
+            <div class="center">
+                <span class="main-text"><span class="red">clients</span>
+                    in your business</span>
+                <div class="describe">Your clients on the internet. Learn how to receive them.</div>
+                <div class="wrapper-but">
+                    <a class="but">I want clients</a>
+                    <div class="mouse-img"></div>
+                </div>
+            </div>
+
+            <a class="slider red" href="#page1"></a>
+        </div>
+    </header>
+
+    <div class="page page-1">
+        <a name="page1"></a>
+        <div class="content">
+            <div class="headear-wrapper">
+                <span>What can
+                    <span class="red">you receive?</span>
+                </span>
+            </div>
+            <div class="describe">Daisy is sagittis sem nibh id elit. Duis sed odio sit amet nibh vulputate cursus a sit amet mauris. Morbi accumsan ipsum velit. Nam nec tellus a odio tincidunt auctor a ornare odio. Sed non  mauris vitae erat consequat auctor eu in elit. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Mauris in erat justo. Nullam ac urna eu felis dapibus condimentum sit amet a augue. Sed non neque elit. Sed ut imperdiet nisi. Proin condimentum fermentum nunc. Etiam pharetra, erat sed fermentum feugiat, velit mauris egestas quam, ut aliquam massa nisl quis neque. Suspendisse in orci enim.</div>
+
+            <div class="main-content">
+                <ul>
+                    <li>
+                        <div class="octa-outer">
+                            <div class="octa-inner">
+                                <div class="icon" id="pg1-icon-1"></div>
+                            </div>
+                        </div>
+                        <h2>CLIENTS</h2>
+                        <div class="describe">This is Photoshop's version  of Lorem Ipsum. Proin gravida nibh vel velit auctor aliquet. Aenean sollicitudin, lorem quis bibendum auctor, nisi elit consequat ipsum, nec sagittis sem nibh id elit. Duis sed odio sit amet nibh vulputate cursus a sit amet mauris. Morbi accumsan ipsum velit. Nam nec tellus a odio tincidunt auctor a ornare odio. Sed non  mauris vitae erat consequat auctor eu in elit. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Mauris in erat justo. Nullam ac urna eu felis dapibus condimentum sit amet a augue. Sed non neque elit. Sed ut imperdiet nisi. Proin condimentum fermentum nunc. Etiam pharetra, erat sed fermentum feugiat, velit mauris egestas quam, ut aliquam massa nisl quis neque. Suspendisse in orci enim.</div>
+                    </li>
+                    <li>
+                        <div class="octa-outer">
+                            <div class="octa-inner white">
+                                <div class="icon" id="pg1-icon-2"></div>
+                            </div>
+                        </div>
+                        <h2>branding</h2>
+                        <div class="describe">This is Photoshop's version  of Lorem Ipsum. Proin gravida nibh vel velit auctor aliquet. Aenean sollicitudin, lorem quis bibendum auctor, nisi elit consequat ipsum, nec sagittis sem nibh id elit. Duis sed odio sit amet nibh vulputate cursus a sit amet mauris. Morbi accumsan ipsum velit. Nam nec tellus a odio tincidunt auctor a ornare odio. Sed non  mauris vitae erat consequat auctor eu in elit. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Mauris in erat justo. Nullam ac urna eu felis dapibus condimentum sit amet a augue. Sed non neque elit. Sed ut imperdiet nisi. Proin condimentum fermentum nunc. Etiam pharetra, erat sed fermentum feugiat, velit mauris egestas quam, ut aliquam massa nisl quis neque. Suspendisse in orci enim.</div>
+                    </li>
+                    <li>
+                        <div class="octa-outer">
+                            <div class="octa-inner">
+                                <div class="icon" id="pg1-icon-3"></div>
+                            </div>
+                        </div>
+                        <h2>marketing</h2>
+                        <div class="describe">This is Photoshop's version  of Lorem Ipsum. Proin gravida nibh vel velit auctor aliquet. Aenean sollicitudin, lorem quis bibendum auctor, nisi elit consequat ipsum, nec sagittis sem nibh id elit. Duis sed odio sit amet nibh vulputate cursus a sit amet mauris. Morbi accumsan ipsum velit. Nam nec tellus a odio tincidunt auctor a ornare odio. Sed non  mauris vitae erat consequat auctor eu in elit. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Mauris in erat justo. Nullam ac urna eu felis dapibus condimentum sit amet a augue. Sed non neque elit. Sed ut imperdiet nisi. Proin condimentum fermentum nunc. Etiam pharetra, erat sed fermentum feugiat, velit mauris egestas quam, ut aliquam massa nisl quis neque. Suspendisse in orci enim.</div>
+                    </li>
+                    <li>
+                        <div class="octa-outer">
+                            <div class="octa-inner">
+                                <div class="icon" id="pg1-icon-4"></div>
+                            </div>
+                        </div>
+                        <h2>adv.</h2>
+                        <div class="describe">This is Photoshop's version  of Lorem Ipsum. Proin gravida nibh vel velit auctor aliquet. Aenean sollicitudin, lorem quis bibendum auctor, nisi elit consequat ipsum, nec sagittis sem nibh id elit. Duis sed odio sit amet nibh vulputate cursus a sit amet mauris. Morbi accumsan ipsum velit. Nam nec tellus a odio tincidunt auctor a ornare odio. Sed non  mauris vitae erat consequat auctor eu in elit. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Mauris in erat justo. Nullam ac urna eu felis dapibus condimentum sit amet a augue. Sed non neque elit. Sed ut imperdiet nisi. Proin condimentum fermentum nunc. Etiam pharetra, erat sed fermentum feugiat, velit mauris egestas quam, ut aliquam massa nisl quis neque. Suspendisse in orci enim.</div>
+                    </li>
+                </ul>
+            </div>
+
+            <a href="#page2" class="slider"></a>
+        </div>
+    </div>
+
+    <div class="page page-2" style="background-image: url(images/bg-page2.png)">
+        <a name="page2"></a>
+        <div class="content">
+            <div class="wrapper">
+                <div>
+                    <h1><span class="red">Expand</span>
+                        your business</h1>
+                    <div class="but">Join Us</div>
+                </div>
+            </div>
+            <a class="slider red" href="#page3"></a>
+        </div>
+    </div>
+
+    <div class="page page-3">
+        <a name="page3"></a>
+        <div class="content">
+            <div class="headear-wrapper">
+                <span>our
+                    <span class="red">process</span>
+                </span>
+            </div>
+            <div class="describe">Daisy is sagittis sem nibh id elit. Duis sed odio sit amet nibh vulputate cursus a sit amet mauris. Morbi accumsan ipsum velit. Nam nec tellus a odio tincidunt auctor a ornare odio. Sed non  mauris vitae erat consequat auctor eu in elit. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Mauris in erat justo. Nullam ac urna eu felis dapibus condimentum sit amet a augue. Sed non neque elit. Sed ut imperdiet nisi. Proin condimentum fermentum nunc. Etiam pharetra, erat sed fermentum feugiat, velit mauris egestas quam, ut aliquam massa nisl quis neque. Suspendisse in orci enim.</div>
+
+            <div class="steps-wrapper">
+                <div class="step" id="step-1">
+                    <h3>step <span class="red">1</span></h3>
+                    <span>This is Photoshop's version  of Lorem Ipsum. Proin gravida nibh vel velit auctor aliquet. Aenean sollicitudin, lorem quis bibendum auctor, nisi elit consequat ipsum, nec sagittis sem nibh id elit. Duis sed odio sit amet nibh vulputate cursus a sit amet mauris. Morbi accumsan ipsum velit. Nam nec tellus a odio tincidunt auctor a ornare odio. Sed non  mauris vitae erat consequat auctor eu in elit. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Mauris in erat justo. Nullam ac urna eu felis dapibus condimentum sit amet a augue. Sed non neque elit. Sed ut imperdiet nisi. Proin condimentum fermentum nunc. Etiam pharetra, erat sed fermentum feugiat, velit mauris egestas quam, ut aliquam massa nisl quis neque. Suspendisse in orci enim.</span>
+                </div>
+                <div class="step" id="step-2">
+                    <h3>step <span class="red">2</span></h3>
+                    <span>This is Photoshop's version  of Lorem Ipsum. Proin gravida nibh vel velit auctor aliquet. Aenean sollicitudin, lorem quis bibendum auctor, nisi elit consequat ipsum, nec sagittis sem nibh id elit. Duis sed odio sit amet nibh vulputate cursus a sit amet mauris. Morbi accumsan ipsum velit. Nam nec tellus a odio tincidunt auctor a ornare odio. Sed non  mauris vitae erat consequat auctor eu in elit. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Mauris in erat justo. Nullam ac urna eu felis dapibus condimentum sit amet a augue. Sed non neque elit. Sed ut imperdiet nisi. Proin condimentum fermentum nunc. Etiam pharetra, erat sed fermentum feugiat, velit mauris egestas quam, ut aliquam massa nisl quis neque. Suspendisse in orci enim.</span>
+                </div>
+                <div class="step" id="step-3">
+                    <h3>step <span class="red">3</span></h3>
+                    <span>This is Photoshop's version  of Lorem Ipsum. Proin gravida nibh vel velit auctor aliquet. Aenean sollicitudin, lorem quis bibendum auctor, nisi elit consequat ipsum, nec sagittis sem nibh id elit. Duis sed odio sit amet nibh vulputate cursus a sit amet mauris. Morbi accumsan ipsum velit. Nam nec tellus a odio tincidunt auctor a ornare odio. Sed non  mauris vitae erat consequat auctor eu in elit. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Mauris in erat justo. Nullam ac urna eu felis dapibus condimentum sit amet a augue. Sed non neque elit. Sed ut imperdiet nisi. Proin condimentum fermentum nunc. Etiam pharetra, erat sed fermentum feugiat, velit mauris egestas quam, ut aliquam massa nisl quis neque. Suspendisse in orci enim.</span>
+                </div>
+                <div class="step" id="step-4">
+                    <h3>step <span class="red">4</span></h3>
+                    <span>This is Photoshop's version  of Lorem Ipsum. Proin gravida nibh vel velit auctor aliquet. Aenean sollicitudin, lorem quis bibendum auctor, nisi elit consequat ipsum, nec sagittis sem nibh id elit. Duis sed odio sit amet nibh vulputate cursus a sit amet mauris. Morbi accumsan ipsum velit. Nam nec tellus a odio tincidunt auctor a ornare odio. Sed non  mauris vitae erat consequat auctor eu in elit. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Mauris in erat justo. Nullam ac urna eu felis dapibus condimentum sit amet a augue. Sed non neque elit. Sed ut imperdiet nisi. Proin condimentum fermentum nunc. Etiam pharetra, erat sed fermentum feugiat, velit mauris egestas quam, ut aliquam massa nisl quis neque. Suspendisse in orci enim.</span>
+                </div>
+            </div>
+            <a class="slider" href="page4"></a>
+        </div>
+    </div>
+
+    <!-- other pages -->
+    <link rel="stylesheet" href="dist/style.min.css">
+
+    <!-- Sublime LiveReload Script -->
+    <!-- <script>document.write('<script src="http://' + (location.host || 'localhost').split(':')[0] + ':35729/livereload.js?snipver=1"></' + 'script>')</script> -->
+</body>
+</html>
